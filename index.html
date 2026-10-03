@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ali EbrahimiNiya</title>
-  <meta name="description" content="Ali EbrahimiNiya — Computer Engineering student at Urmia University working on machine learning, medical image segmentation and data analysis.">
+  <meta name="description" content="Ali EbrahimiNiya — Computer Engineering student at Urmia University. Machine learning and data analysis projects.">
   <meta name="author" content="Ali EbrahimiNiya">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
@@ -56,16 +56,11 @@
   <main id="main" class="page">
     <section class="intro" aria-labelledby="intro-title">
       <p class="meta">Tabriz, Iran · Computer Engineering, Urmia University</p>
-      <h1 id="intro-title">I work on machine learning, mostly where the data is messy and the mistakes are&nbsp;expensive.</h1>
+      <h1 id="intro-title">Machine learning and data analysis projects.</h1>
       <div class="intro__text">
         <p>
-          I'm Ali, a computer engineering student. Lately that has meant segmenting brain tumors in MRI scans,
-          predicting which students won't show up for the meals they reserved, and building the desktop
-          and Android apps that put models like these in front of people.
-        </p>
-        <p>
-          I'm looking for a data science or machine learning role or internship, remote or hybrid.
-          The quickest way to reach me is <a href="mailto:ali.ebrahiminiya.01@gmail.com">email</a>.
+          Looking for a data science or machine learning role or internship, remote or hybrid.
+          <a href="mailto:ali.ebrahiminiya.01@gmail.com">ali.ebrahiminiya.01@gmail.com</a>
         </p>
       </div>
     </section>
@@ -93,7 +88,7 @@
             A U-Net that labels every pixel of a brain MRI as edema, non-enhancing tumor or enhancing tumor,
             trained on the Medical Segmentation Decathlon brain tumor set. I split the data by patient rather
             than by slice — otherwise neighbouring slices of the same person leak into the test set and the scores
-            look better than they are. Training ran on my MacBook Air, about four and a half minutes per epoch.
+            look better than they are.
           </p>
 
           <table class="results">
@@ -108,9 +103,8 @@
           </table>
 
           <p>
-            The part I learned most from was the failure analysis. The three worst test slices all came from one
-            patient, where the tumor is barely visible in any of the four MRI sequences and the scan has a strong
-            intensity bias. A 3D model and bias-field correction are the next things I'd try.
+            Failure analysis: the three worst test slices all come from one patient, where the tumor is barely
+            visible in any of the four MRI sequences and the scan has a strong intensity bias.
           </p>
           <p class="project__links"><a href="https://github.com/aliebrahiminiya01/brain-tumor-segmentation-unet">Code and full write-up</a></p>
         </div>
@@ -127,15 +121,13 @@
         <div class="project__split">
           <div class="project__body">
             <p>
-              About one in seven reserved meals is never picked up, and every one of them is wasted food.
-              My first model scored 85% accuracy, which sounded fine until I noticed that always predicting
-              “picked up” scores the same. It had caught 51 of 1,563 no-shows.
+              About one in seven reserved meals is never picked up. A first model reached 85% accuracy — the same
+              as always predicting “picked up” — and caught 51 of 1,563 no-shows.
             </p>
             <p>
-              What actually helped was each student's own history, computed only from the days before each
-              reservation so the model never sees the future, plus testing on the last weeks of the semester
-              instead of a random split. ROC AUC went from 0.55 to 0.66. Holidays turned out to be the biggest
-              single risk: more than half of those meals go uncollected.
+              Adding each student's past pickup rate (computed only from earlier days) and testing on the last
+              weeks of the semester instead of a random split raised ROC AUC from 0.55 to 0.66. On holidays more
+              than half of reserved meals are not collected.
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/uni_restaurant_project_demo">Code and notebook</a></p>
           </div>
@@ -163,14 +155,12 @@
           </figure>
           <div class="project__body">
             <p>
-              Two years of bookings from a city hotel and a resort in Portugal. Most of the work was making the
-              numbers honest: about 32,000 duplicate rows, a €5,400 room rate that was a typo, and a revenue figure
-              that only means something once you multiply the nightly rate by the number of nights and drop
-              cancelled stays.
+              Two years of bookings from a city hotel and a resort in Portugal. Cleaning: about 32,000 duplicate
+              rows removed, an invalid €5,400 room rate dropped, and revenue computed as nightly rate × nights for
+              non-cancelled stays.
             </p>
             <p>
-              The clearest finding: bookings made within a week are cancelled 8% of the time, bookings made months
-              ahead around 40%.
+              Bookings made within a week are cancelled 8% of the time; bookings made months ahead, around 40%.
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Hotel_Project">Code and notebook</a></p>
           </div>
@@ -181,17 +171,16 @@
         <header class="project__head">
           <span class="project__no">04</span>
           <div>
-            <h3>Loan approval with a second opinion</h3>
+            <h3>Loan approval prediction</h3>
             <p class="project__stack">scikit-learn · Tkinter · logistic regression + random forest</p>
           </div>
         </header>
         <div class="project__split">
           <div class="project__body">
             <p>
-              A desktop app that estimates whether a loan application should be approved. Two models vote; if they
-              disagree, the application goes to a person instead of being decided automatically. The models approve
-              almost every good applicant but also about 40% of the risky ones — which is exactly why I didn't want
-              either of them deciding alone.
+              Desktop app that predicts loan approval with two models. If they disagree, the application is sent
+              for manual review. On the test set the models approve almost all good applicants and about 40% of
+              the risky ones.
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Loan_Qualification">Code</a></p>
           </div>
@@ -212,7 +201,7 @@
                  alt="Three Android screens of Daymark: the task list, the monthly planner and the insights page">
           </figure>
           <h3>Daymark</h3>
-          <p>A task manager and day planner for Android, written in Python with Qt and SQLite. Everything stays on the phone. 46 automated tests and CI on every push.</p>
+          <p>Task manager and day planner for Android (Python, Qt, SQLite). 46 automated tests, CI.</p>
           <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Daymark">Code</a></p>
         </li>
         <li class="app">
@@ -221,7 +210,7 @@
                  alt="A Persian PDF invoice generated by the repair shop system, listing the device, repair notes and replaced parts">
           </figure>
           <h3>Repair shop manager</h3>
-          <p>Persian, right-to-left desktop software for an electronics repair shop: devices, spare parts, low-stock alerts, Jalali dates and printable PDF invoices.</p>
+          <p>Desktop software for an electronics repair shop, in Persian: devices, spare parts, low-stock alerts, Jalali dates, PDF invoices.</p>
           <p class="project__links"><a href="https://github.com/aliebrahiminiya01/RepairShop">Code</a></p>
         </li>
         <li class="app">
@@ -230,7 +219,7 @@
                  alt="Writing Exercise Studio showing a short essay with search matches highlighted and a list of repeated words">
           </figure>
           <h3>Writing Exercise Studio</h3>
-          <p>A quiet place to practise writing: word targets, a timer per exercise, right-to-left text and a list of the words you keep repeating.</p>
+          <p>Desktop app for writing practice: word count and targets, timer, right-to-left text, repeated-word list.</p>
           <p class="project__links"><a href="https://github.com/aliebrahiminiya01/writing_exercise_app">Code</a></p>
         </li>
       </ul>
@@ -239,18 +228,6 @@
     <section id="about" class="about" aria-labelledby="about-title">
       <h2 class="section-label" id="about-title">About</h2>
       <div class="about__grid">
-        <div class="about__text">
-          <p>
-            I study computer engineering at Urmia University and live in Tabriz. I got into data science through
-            analysis projects, and stayed because of the moment a model's number turns out to be wrong for a
-            reason you can explain.
-          </p>
-          <p>
-            I care about evaluation more than about squeezing out the last point of accuracy: honest baselines,
-            splits that match how a model will really be used, and looking hard at the cases it gets wrong.
-            I also like finishing things, which is why several of my projects end as apps rather than notebooks.
-          </p>
-        </div>
         <dl class="facts">
           <dt>Education</dt>
           <dd>B.Sc. Computer Engineering, Urmia University, 2023–2026</dd>
@@ -267,10 +244,9 @@
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <h2 class="section-label" id="contact-title">Contact</h2>
       <p class="contact__line">
-        The best way to reach me is email:
-        <a href="mailto:ali.ebrahiminiya.01@gmail.com">ali.ebrahiminiya.01@gmail.com</a>.
-        I'm also on <a href="https://www.linkedin.com/in/aliebrahiminiya">LinkedIn</a>
-        and <a href="https://github.com/aliebrahiminiya01">GitHub</a>.
+        <a href="mailto:ali.ebrahiminiya.01@gmail.com">ali.ebrahiminiya.01@gmail.com</a><br>
+        <a href="https://www.linkedin.com/in/aliebrahiminiya">LinkedIn</a> ·
+        <a href="https://github.com/aliebrahiminiya01">GitHub</a>
       </p>
     </section>
   </main>
