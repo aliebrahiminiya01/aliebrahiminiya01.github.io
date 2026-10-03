@@ -158,16 +158,9 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
 .results tbody tr { border-bottom: 1px solid var(--rule); }
 .results__key td { color: var(--accent); font-weight: 500; }
 
-/* ---------- Applications ---------- */
-.apps {
-  list-style: none; margin: 0 0 clamp(4rem, 8vw, 6rem); padding: 0 0 0 3.5rem;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.75rem, 4vw, 3rem);
-}
-.app .figure { margin-bottom: 1.25rem; }
-.app .figure img { aspect-ratio: 4 / 3; object-fit: contain; }
-.app h3 { font-family: var(--serif); font-size: 1.35rem; margin-bottom: .4rem; }
-.app p { color: var(--ink-soft); font-size: .97rem; }
-.app .project__links { margin-top: .5rem; }
+.others { list-style: none; margin: 0 0 clamp(4rem, 8vw, 6rem); padding: 0 0 0 3.5rem; max-width: 70ch; }
+.others li { padding: .6rem 0; border-bottom: 1px solid var(--rule); color: var(--ink-soft); font-size: .97rem; }
+.others li a { color: var(--ink); }
 
 /* ---------- About ---------- */
 .about { padding-bottom: clamp(4rem, 8vw, 6rem); }
@@ -198,7 +191,6 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
 @media (max-width: 860px) {
   .project__split, .project__split--flip, .about__grid { grid-template-columns: 1fr; }
   .project__split--flip .figure { order: 2; }
-  .apps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
   .facts { grid-template-columns: 1fr; gap: .15rem 0; }
@@ -208,8 +200,7 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
   .masthead__name { font-size: 1.05rem; }
   .intro__text { margin-left: 0; }
   .project__head { grid-template-columns: 2.25rem 1fr; }
-  .project--lead .project__body, .project__split, .figure--wide, .apps, .about__grid, .contact__line { margin-left: 0; padding-left: 0; }
-  .apps { grid-template-columns: 1fr; }
+  .project--lead .project__body, .project__split, .figure--wide, .others, .about__grid, .contact__line { margin-left: 0; padding-left: 0; }
   .results th, .results td { padding-right: .5rem; }
 }
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ali EbrahimiNiya</title>
-  <meta name="description" content="Ali EbrahimiNiya — Computer Engineering student at Urmia University. Machine learning and data analysis projects.">
+  <meta name="description" content="Ali EbrahimiNiya — Computer Engineering student at Urmia University. Data analysis, machine learning and deep learning projects.">
   <meta name="author" content="Ali EbrahimiNiya">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aliebrahiminiya01.github.io/">
   <meta property="og:title" content="Ali EbrahimiNiya">
-  <meta property="og:description" content="Machine learning, medical image segmentation and data analysis — projects and notes.">
+  <meta property="og:description" content="Data analysis, machine learning and deep learning projects.">
   <meta property="og:image" content="https://aliebrahiminiya01.github.io/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -56,7 +56,7 @@
   <main id="main" class="page">
     <section class="intro" aria-labelledby="intro-title">
       <p class="meta">Tabriz, Iran · Computer Engineering, Urmia University</p>
-      <h1 id="intro-title">Machine learning and data analysis projects.</h1>
+      <h1 id="intro-title">Data analysis, machine learning and deep learning projects.</h1>
       <div class="intro__text">
         <p>
           Looking for a data science or machine learning role or internship, remote or hybrid.
@@ -87,7 +87,7 @@
           <p>
             A U-Net that labels every pixel of a brain MRI as edema, non-enhancing tumor or enhancing tumor,
             trained on the Medical Segmentation Decathlon brain tumor set. I split the data by patient rather
-            than by slice — otherwise neighbouring slices of the same person leak into the test set and the scores
+            than by slice — otherwise neighboring slices of the same person leak into the test set and the scores
             look better than they are.
           </p>
 
@@ -114,6 +114,75 @@
         <header class="project__head">
           <span class="project__no">02</span>
           <div>
+            <h3>Glioma grade prediction with radiomics</h3>
+            <p class="project__stack">PyRadiomics · scikit-learn · BraTS 2020 · 369 patients</p>
+          </div>
+        </header>
+        <div class="project__split">
+          <div class="project__body">
+            <p>
+              Low- vs high-grade glioma from 637 radiomics features computed inside the tumor masks. In
+              cross-validation every feature set reaches ROC AUC around 0.95 — but in BraTS 2020 the contributing
+              institution almost determines the grade.
+            </p>
+            <p>
+              Texture features identify the institution's scanner with AUC 0.99 among high-grade patients alone.
+              On the 39 patients whose source contains both grades, texture models drop to 0.88, while a LASSO model
+              on tumor shape holds at 0.93.
+            </p>
+            <table class="results">
+              <caption><span>Table 2</span> ROC AUC of LASSO logistic regression by feature set.</caption>
+              <thead>
+                <tr><th scope="col">Features</th><th scope="col">Grade, CV</th><th scope="col">Grade, mixed source</th><th scope="col">Scanner</th></tr>
+              </thead>
+              <tbody>
+                <tr class="results__key"><th scope="row">Shape</th><td>0.95</td><td>0.93</td><td>0.91</td></tr>
+                <tr><th scope="row">Texture</th><td>0.92</td><td>0.88</td><td>0.99</td></tr>
+              </tbody>
+            </table>
+            <p class="project__links"><a href="https://github.com/aliebrahiminiya01/glioma-grade-radiomics">Code and notebook</a></p>
+          </div>
+          <figure class="figure">
+            <img src="assets/img/radiomics.webp" width="979" height="451" loading="lazy"
+                 alt="Bar chart comparing four radiomics feature sets on grade prediction in cross-validation, on a mixed-source test and on recognizing the data source">
+            <figcaption><span>Fig. 2</span> Grade AUC in cross-validation and on the mixed-source test, and how well each feature set recognizes the data source.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project">
+        <header class="project__head">
+          <span class="project__no">03</span>
+          <div>
+            <h3>Survival analysis of diffuse glioma</h3>
+            <p class="project__stack">lifelines · scikit-survival · TCGA LGG + GBM · 1,040 patients</p>
+          </div>
+        </header>
+        <div class="project__split project__split--flip">
+          <figure class="figure">
+            <img src="assets/img/survival.webp" width="900" height="579" loading="lazy"
+                 alt="Kaplan-Meier curves: IDH-wildtype patients have much shorter survival than IDH-mutant patients">
+            <figcaption><span>Fig. 3</span> Overall survival by molecular subtype (Kaplan–Meier, 95% bands).</figcaption>
+          </figure>
+          <div class="project__body">
+            <p>
+              Overall survival from seven clinical and molecular features (age, grade, IDH/1p19q subtype, Karnofsky
+              score and others), with a held-out test set and nested cross-validation.
+            </p>
+            <p>
+              A Cox model reached Uno's C-index 0.81 and integrated Brier score 0.118 on the test set (no-information
+              baseline 0.220). Random survival forest and gradient boosting did not beat it. Median survival is
+              14 months for IDH-wildtype tumors and about 116 months for IDH-mutant, 1p/19q-codeleted ones.
+            </p>
+            <p class="project__links"><a href="https://github.com/aliebrahiminiya01/glioma-survival">Code and report</a></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <header class="project__head">
+          <span class="project__no">04</span>
+          <div>
             <h3>Predicting meal no-shows at a university restaurant</h3>
             <p class="project__stack">scikit-learn · pandas · 52,333 reservations</p>
           </div>
@@ -134,14 +203,14 @@
           <figure class="figure">
             <img src="assets/img/restaurant.webp" width="790" height="590" loading="lazy"
                  alt="Horizontal bar chart of logistic regression coefficients; past pickup rate and lunch push towards pickup, holidays and breakfast towards no-show">
-            <figcaption><span>Fig. 2</span> What pushes a reservation towards a no-show (red) or a pickup (green).</figcaption>
+            <figcaption><span>Fig. 4</span> What pushes a reservation towards a no-show (red) or a pickup (green).</figcaption>
           </figure>
         </div>
       </article>
 
       <article class="project">
         <header class="project__head">
-          <span class="project__no">03</span>
+          <span class="project__no">05</span>
           <div>
             <h3>Hotel booking analysis</h3>
             <p class="project__stack">pandas · Matplotlib · 119,390 bookings</p>
@@ -151,7 +220,7 @@
           <figure class="figure">
             <img src="assets/img/hotel.webp" width="890" height="490" loading="lazy"
                  alt="Bar chart: cancellation rate rises from 8 percent for bookings made within a week to about 40 percent for bookings made more than six months ahead">
-            <figcaption><span>Fig. 3</span> Cancellation rate by lead time — the further ahead, the less likely the guest shows up.</figcaption>
+            <figcaption><span>Fig. 5</span> Cancellation rate by lead time — the further ahead, the less likely the guest shows up.</figcaption>
           </figure>
           <div class="project__body">
             <p>
@@ -169,7 +238,7 @@
 
       <article class="project">
         <header class="project__head">
-          <span class="project__no">04</span>
+          <span class="project__no">06</span>
           <div>
             <h3>Loan approval prediction</h3>
             <p class="project__stack">scikit-learn · Tkinter · logistic regression + random forest</p>
@@ -187,41 +256,16 @@
           <figure class="figure">
             <img src="assets/img/loan.webp" width="904" height="390" loading="lazy"
                  alt="Confusion matrices of the logistic regression and random forest models on the test set">
-            <figcaption><span>Fig. 4</span> Test-set confusion matrices of the two models.</figcaption>
+            <figcaption><span>Fig. 6</span> Test-set confusion matrices of the two models.</figcaption>
           </figure>
         </div>
       </article>
 
-      <h2 class="section-label section-label--minor">Applications</h2>
-
-      <ul class="apps">
-        <li class="app">
-          <figure class="figure figure--dark">
-            <img src="assets/img/daymark.webp" width="1200" height="763" loading="lazy"
-                 alt="Three Android screens of Daymark: the task list, the monthly planner and the insights page">
-          </figure>
-          <h3>Daymark</h3>
-          <p>Task manager and day planner for Android (Python, Qt, SQLite). 46 automated tests, CI.</p>
-          <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Daymark">Code</a></p>
-        </li>
-        <li class="app">
-          <figure class="figure">
-            <img src="assets/img/repairshop.webp" width="1000" height="980" loading="lazy"
-                 alt="A Persian PDF invoice generated by the repair shop system, listing the device, repair notes and replaced parts">
-          </figure>
-          <h3>Repair shop manager</h3>
-          <p>Desktop software for an electronics repair shop, in Persian: devices, spare parts, low-stock alerts, Jalali dates, PDF invoices.</p>
-          <p class="project__links"><a href="https://github.com/aliebrahiminiya01/RepairShop">Code</a></p>
-        </li>
-        <li class="app">
-          <figure class="figure figure--dark">
-            <img src="assets/img/writing.webp" width="1200" height="750" loading="lazy"
-                 alt="Writing Exercise Studio showing a short essay with search matches highlighted and a list of repeated words">
-          </figure>
-          <h3>Writing Exercise Studio</h3>
-          <p>Desktop app for writing practice: word count and targets, timer, right-to-left text, repeated-word list.</p>
-          <p class="project__links"><a href="https://github.com/aliebrahiminiya01/writing_exercise_app">Code</a></p>
-        </li>
+      <h2 class="section-label section-label--minor">Other projects</h2>
+      <ul class="others">
+        <li><a href="https://github.com/aliebrahiminiya01/Daymark">Daymark</a> — task manager and day planner for Android (Python, Qt, SQLite), 46 automated tests, CI.</li>
+        <li><a href="https://github.com/aliebrahiminiya01/RepairShop">Repair shop manager</a> — desktop software for an electronics repair shop, in Persian, with PDF invoices.</li>
+        <li><a href="https://github.com/aliebrahiminiya01/writing_exercise_app">Writing Exercise Studio</a> — desktop app for writing practice (PySide6).</li>
       </ul>
     </section>
 
@@ -231,12 +275,14 @@
         <dl class="facts">
           <dt>Education</dt>
           <dd>B.Sc. Computer Engineering, Urmia University, 2023–2026</dd>
+          <dt>Deep learning</dt>
+          <dd>PyTorch, MONAI, CNNs / U-Net, medical image segmentation</dd>
           <dt>Machine learning</dt>
-          <dd>PyTorch, MONAI, scikit-learn, model evaluation, image segmentation</dd>
-          <dt>Data</dt>
-          <dd>Python, pandas, NumPy, SQL, Matplotlib, Jupyter</dd>
-          <dt>Software</dt>
-          <dd>PySide6 / Qt, Tkinter, SQLite, pytest, Git, GitHub Actions</dd>
+          <dd>scikit-learn, PyRadiomics, model evaluation, cross-validation, feature selection</dd>
+          <dt>Data analysis</dt>
+          <dd>Python, pandas, NumPy, SQL, Matplotlib, survival analysis (lifelines, scikit-survival)</dd>
+          <dt>Tools</dt>
+          <dd>Jupyter, Git, GitHub Actions, pytest</dd>
         </dl>
       </div>
     </section>
