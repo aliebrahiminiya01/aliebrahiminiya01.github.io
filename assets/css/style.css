@@ -107,6 +107,7 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
 /* ---------- Experience ---------- */
 .experience { margin-bottom: clamp(4.5rem, 9vw, 7rem); }
 .job { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding-left: 3.5rem; max-width: 62rem; }
+.job + .job { margin-top: 2.75rem; }
 .job__when { font-family: var(--mono); font-size: .8rem; color: var(--ink-faint); padding-top: .45rem; margin: 0; }
 .job h3 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; margin-bottom: .2rem; }
 .job__org { color: var(--accent); margin-bottom: 1rem; }
