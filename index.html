@@ -183,11 +183,47 @@
         <header class="project__head">
           <span class="project__no">04</span>
           <div>
+            <h3>Automatic vs. expert masks for radiomics</h3>
+            <p class="project__stack">PyTorch · MONAI · PyRadiomics · lifelines · BraTS 2020 · 369 patients</p>
+          </div>
+        </header>
+        <div class="project__split">
+          <div class="project__body">
+            <p>
+              Projects 01–03 joined into one pipeline: the U-Net draws the tumor mask, radiomics features are
+              computed from it, and the features go into the grade and survival models. The U-Net was retrained
+              in 3 folds so every patient's mask comes from a model that never saw them.
+            </p>
+            <p>
+              The U-Net segments the whole tumor well (median Dice 0.91) but marks a small enhancing region in
+              26 of the 27 low-grade tumors that have none. A grade model trained on U-Net masks still reaches
+              AUC 0.92 (0.95 with expert masks); one trained on expert masks and applied to U-Net masks drops to
+              0.85. For survival, tumor shape adds little to age with either mask type.
+            </p>
+            <p class="project__links"><a href="https://github.com/aliebrahiminiya01/glioma-pipeline">Code and notebooks</a></p>
+          </div>
+          <figure class="figure">
+            <img src="assets/img/pipeline.webp" width="563" height="571" loading="lazy"
+                 alt="ROC curves for grade prediction: expert masks AUC 0.95, U-Net masks AUC 0.92, model trained on expert masks applied to U-Net masks AUC 0.85">
+            <figcaption><span>Fig. 4</span> Grade prediction, out-of-fold over 369 patients, for three combinations of training and test masks.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project">
+        <header class="project__head">
+          <span class="project__no">05</span>
+          <div>
             <h3>Predicting meal no-shows at a university restaurant</h3>
             <p class="project__stack">scikit-learn · pandas · 52,333 reservations</p>
           </div>
         </header>
-        <div class="project__split">
+        <div class="project__split project__split--flip">
+          <figure class="figure">
+            <img src="assets/img/restaurant.webp" width="790" height="590" loading="lazy"
+                 alt="Horizontal bar chart of logistic regression coefficients; past pickup rate and lunch push towards pickup, holidays and breakfast towards no-show">
+            <figcaption><span>Fig. 5</span> What pushes a reservation towards a no-show (red) or a pickup (green).</figcaption>
+          </figure>
           <div class="project__body">
             <p>
               About one in seven reserved meals is never picked up. A first model reached 85% accuracy — the same
@@ -200,28 +236,18 @@
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/uni_restaurant_project_demo">Code and notebook</a></p>
           </div>
-          <figure class="figure">
-            <img src="assets/img/restaurant.webp" width="790" height="590" loading="lazy"
-                 alt="Horizontal bar chart of logistic regression coefficients; past pickup rate and lunch push towards pickup, holidays and breakfast towards no-show">
-            <figcaption><span>Fig. 4</span> What pushes a reservation towards a no-show (red) or a pickup (green).</figcaption>
-          </figure>
         </div>
       </article>
 
       <article class="project">
         <header class="project__head">
-          <span class="project__no">05</span>
+          <span class="project__no">06</span>
           <div>
             <h3>Hotel booking analysis</h3>
             <p class="project__stack">pandas · Matplotlib · 119,390 bookings</p>
           </div>
         </header>
-        <div class="project__split project__split--flip">
-          <figure class="figure">
-            <img src="assets/img/hotel.webp" width="890" height="490" loading="lazy"
-                 alt="Bar chart: cancellation rate rises from 8 percent for bookings made within a week to about 40 percent for bookings made more than six months ahead">
-            <figcaption><span>Fig. 5</span> Cancellation rate by lead time — the further ahead, the less likely the guest shows up.</figcaption>
-          </figure>
+        <div class="project__split">
           <div class="project__body">
             <p>
               Two years of bookings from a city hotel and a resort in Portugal. Cleaning: about 32,000 duplicate
@@ -233,18 +259,28 @@
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Hotel_Project">Code and notebook</a></p>
           </div>
+          <figure class="figure">
+            <img src="assets/img/hotel.webp" width="890" height="490" loading="lazy"
+                 alt="Bar chart: cancellation rate rises from 8 percent for bookings made within a week to about 40 percent for bookings made more than six months ahead">
+            <figcaption><span>Fig. 6</span> Cancellation rate by lead time — the further ahead, the less likely the guest shows up.</figcaption>
+          </figure>
         </div>
       </article>
 
       <article class="project">
         <header class="project__head">
-          <span class="project__no">06</span>
+          <span class="project__no">07</span>
           <div>
             <h3>Loan approval prediction</h3>
             <p class="project__stack">scikit-learn · Tkinter · logistic regression + random forest</p>
           </div>
         </header>
-        <div class="project__split">
+        <div class="project__split project__split--flip">
+          <figure class="figure">
+            <img src="assets/img/loan.webp" width="904" height="390" loading="lazy"
+                 alt="Confusion matrices of the logistic regression and random forest models on the test set">
+            <figcaption><span>Fig. 7</span> Test-set confusion matrices of the two models.</figcaption>
+          </figure>
           <div class="project__body">
             <p>
               Desktop app that predicts loan approval with two models. If they disagree, the application is sent
@@ -253,11 +289,6 @@
             </p>
             <p class="project__links"><a href="https://github.com/aliebrahiminiya01/Loan_Qualification">Code</a></p>
           </div>
-          <figure class="figure">
-            <img src="assets/img/loan.webp" width="904" height="390" loading="lazy"
-                 alt="Confusion matrices of the logistic regression and random forest models on the test set">
-            <figcaption><span>Fig. 6</span> Test-set confusion matrices of the two models.</figcaption>
-          </figure>
         </div>
       </article>
 
