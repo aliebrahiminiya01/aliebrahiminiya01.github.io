@@ -45,6 +45,7 @@
       <a class="masthead__name" href="./">Ali EbrahimiNiya</a>
       <nav aria-label="Main">
         <ul>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -57,6 +58,29 @@
     <section class="intro" aria-labelledby="intro-title">
       <p class="meta">Tabriz, Iran</p>
       <h1 id="intro-title">I'm Ali, a computer engineering student at Urmia University. I work on machine learning and medical imaging.</h1>
+    </section>
+
+    <section id="experience" class="experience" aria-labelledby="experience-title">
+      <h2 class="section-label" id="experience-title">Experience</h2>
+      <article class="job">
+        <p class="job__when">Jun – Sep 2026 · Remote</p>
+        <div>
+          <h3>Computer Vision Intern</h3>
+          <p class="job__org">Daneshpajoohan Fanavar Kashef</p>
+          <p>
+            Real-time checking of bodybuilding poses and exercises from a camera, running inside a Unity
+            app. I worked on the pose detection and the logic behind it:
+          </p>
+          <ul class="job__points">
+            <li>Real-time body pose estimation with MediaPipe Pose Landmarker (33 landmarks, 3D world coordinates).</li>
+            <li>Joint angles measured from the landmarks and compared with target angles and tolerances, so each joint is shown green, yellow or red.</li>
+            <li>One-Euro filtering of the landmarks and a 3-frame status debounce, to remove jitter and flicker at the thresholds.</li>
+            <li>Hold timing for poses and phase-based rep counting for exercises, with bad-form reps counted separately.</li>
+            <li>Pose capture: a user's current position becomes the target angles for a new pose.</li>
+          </ul>
+          <p class="job__note">Company project; the code is private.</p>
+        </div>
+      </article>
     </section>
 
     <section id="work" aria-labelledby="work-title">

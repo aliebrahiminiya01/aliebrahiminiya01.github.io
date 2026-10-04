@@ -104,6 +104,17 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
 }
 .section-label--minor { margin-top: 5rem; border-top-color: var(--rule); }
 
+/* ---------- Experience ---------- */
+.experience { margin-bottom: clamp(4.5rem, 9vw, 7rem); }
+.job { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding-left: 3.5rem; max-width: 62rem; }
+.job__when { font-family: var(--mono); font-size: .8rem; color: var(--ink-faint); padding-top: .45rem; margin: 0; }
+.job h3 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; margin-bottom: .2rem; }
+.job__org { color: var(--accent); margin-bottom: 1rem; }
+.job p { color: var(--ink-soft); max-width: var(--measure); }
+.job__points { margin: 0 0 1rem; padding-left: 1.1rem; color: var(--ink-soft); max-width: var(--measure); }
+.job__points li { margin-bottom: .35rem; }
+.job__note { font-size: .85rem; color: var(--ink-faint) !important; }
+
 /* ---------- Projects ---------- */
 .project { margin-bottom: clamp(4.5rem, 9vw, 7rem); }
 .project__head { display: grid; grid-template-columns: 3.5rem 1fr; gap: .5rem; margin-bottom: 2rem; }
@@ -193,11 +204,12 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
   .project__split--flip .figure { order: 2; }
 }
 @media (max-width: 600px) {
+  .job { grid-template-columns: 1fr; padding-left: 0; gap: .25rem; }
   .facts { grid-template-columns: 1fr; gap: .15rem 0; }
   .facts dd { margin-bottom: .8rem; }
   .page { width: calc(100% - 2.5rem); }
-  .masthead nav ul { gap: 1rem; }
-  .masthead__name { font-size: 1.05rem; }
+  .masthead__inner { flex-wrap: wrap; row-gap: .35rem; }
+  .masthead nav ul { gap: 1.1rem; }
   .intro__text { margin-left: 0; }
   .project__head { grid-template-columns: 2.25rem 1fr; }
   .project--lead .project__body, .project__split, .figure--wide, .others, .about__grid, .contact__line { margin-left: 0; padding-left: 0; }
