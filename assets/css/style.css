@@ -125,7 +125,6 @@ a:hover { color: var(--accent); text-decoration-thickness: 2px; }
   line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; margin-bottom: .45rem;
 }
 .project__stack { font-family: var(--mono); font-size: .8rem; color: var(--ink-faint); margin: 0; }
-.project__guide { font-size: .85rem; color: var(--ink-soft); margin: .2rem 0 0; }
 
 .project__body { max-width: var(--measure); }
 .project__body p { color: var(--ink-soft); }
